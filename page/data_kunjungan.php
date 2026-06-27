@@ -1,5 +1,5 @@
 <?php
-// FITUR PELACAK ERROR (Akan memunculkan teks merah jika ada yang salah)
+// FITUR PELACAK ERROR
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
@@ -140,11 +140,9 @@ if (isset($_GET['hapus'])) {
                                     <td>" . htmlspecialchars($row['Keluhan']) . "</td>
                                     <td class='text-center'>{$status}</td>
                                     <td class='text-center'>
-                                        
-                                        <a href=' detail_tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-sm btn-info text-white fw-bold px-3 me-1' style='border-radius: 15px;'>
-                                            <i class='fa fa-stethoscope me-1'></i> Detail Tindakan
+                                        <a href='edit_kunjungan.php?id={$row['ID_Kunjungan']}' class='btn btn-sm btn-warning fw-bold px-3 me-1' style='border-radius: 15px; color: #212529;'>
+                                            <i class='fa fa-edit me-1'></i> Edit
                                         </a>
-
                                         <a href='data_kunjungan.php?hapus={$row['ID_Kunjungan']}' class='btn btn-sm btn-danger px-3' style='border-radius: 15px;' onclick='return confirm(\"Yakin ingin menghapus data kunjungan ini?\")'>
                                             <i class='fa fa-trash'></i> Hapus
                                         </a>
