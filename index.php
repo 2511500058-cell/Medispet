@@ -139,6 +139,8 @@ include 'config/koneksi.php';
 
           <?php 
           if ($role == 'dokter') { 
+              // 1. Ambil username dokter yang sedang login dari session
+              $username_login = mysqli_real_escape_string($koneksi, $_SESSION['username']);
           ?>
               <div class="table-responsive">
                   <table class="table table-hover align-middle m-0">
@@ -154,7 +156,14 @@ include 'config/koneksi.php';
                       </thead>
                       <tbody>
                           <?php
-                          $query_antrean = "SELECT k.*, h.Nama_Hewan FROM kunjungan k JOIN hewan h ON k.ID_Hewan = h.ID_Hewan ORDER BY k.ID_Kunjungan DESC";
+                          // 2. FILTER QUERY: Hubungkan tabel kunjungan dengan dokter, lalu saring berdasarkan nama dokter yang login
+                          $query_antrean = "SELECT k.*, h.Nama_Hewan 
+                                            FROM kunjungan k 
+                                            JOIN hewan h ON k.ID_Hewan = h.ID_Hewan 
+                                            JOIN dokter d ON k.ID_Dokter = d.ID_Dokter
+                                            WHERE LOWER(REPLACE(REPLACE(REPLACE(d.Nama_Dokter, ' ', ''), '.', ''), ',', '')) = LOWER('$username_login')
+                                            ORDER BY k.ID_Kunjungan DESC";
+                                            
                           $res_dokter = mysqli_query($koneksi, $query_antrean);
 
                           if (mysqli_num_rows($res_dokter) > 0) {
