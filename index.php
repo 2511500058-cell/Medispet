@@ -100,28 +100,39 @@ include 'config/koneksi.php';
                     ?>
                     <h5 class="fw-bold text-primary mb-4"><i class="fa fa-cogs me-2"></i>Manajemen Data Master & Administrasi</h5>
                     <p class="text-muted mb-4">Sebagai Administrator, Anda memiliki akses penuh untuk mengelola pengguna, pendaftaran antrean, obat, dan validasi tagihan tindakan klinik.</p>
-                    <div class="row g-3 text-center">
-                        <div class="col-md-3">
-                            <a href="page/data_dokter.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm" style="border-radius: 15px;">
-                                <i class="fa fa-user-md d-block mb-2 fs-4"></i> Kelola Dokter
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="page/data_pemilik.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm" style="border-radius: 15px;">
-                                <i class="fa fa-users d-block mb-2 fs-4"></i> Kelola Pemilik & Hewan
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="page/data_obat.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm" style="border-radius: 15px;">
-                                <i class="fa fa-pills d-block mb-2 fs-4"></i> Kelola Data Obat
-                            </a>
-                        </div>
-                        <div class="col-md-3">
-                            <a href="page/data_kunjungan.php" class="btn btn-primary w-100 py-3 fw-bold shadow-sm text-white" style="border-radius: 15px;">
-                                <i class="fa fa-clipboard-list d-block mb-2 fs-4"></i> Pendaftaran Antrean
-                            </a>
-                        </div>
-                    </div>
+                    <div class="row g-3 text-center justify-content-center align-items-stretch">
+    <div class="col-md-4 d-flex">
+        <a href="page/data_dokter.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+            <i class="fa fa-user-md d-block mb-2" style="font-size: 2rem;"></i> 
+            Kelola Dokter
+        </a>
+    </div>
+    <div class="col-md-4 d-flex">
+        <a href="page/data_pemilik.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+            <i class="fa fa-user d-block mb-2" style="font-size: 2rem;"></i> 
+            Kelola Pemilik
+        </a>
+    </div>
+    <div class="col-md-4 d-flex">
+        <a href="page/data_hewan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+            <i class="fa fa-paw d-block mb-2" style="font-size: 2rem;"></i> 
+            Kelola Hewan
+        </a>
+    </div>
+
+    <div class="col-md-4 d-flex">
+        <a href="page/data_obat.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+            <i class="fa fa-medkit d-block mb-2" style="font-size: 2rem;"></i> 
+            Kelola Data Obat
+        </a>
+    </div>
+    <div class="col-md-4 d-flex">
+        <a href="page/data_kunjungan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+            <i class="fa fa-list-alt d-block mb-2" style="font-size: 2rem;"></i> 
+            Pendaftaran Antrean
+        </a>
+    </div>
+</div>
                     <?php
                     break;
 

@@ -1,20 +1,18 @@
 <?php
 session_start();
-// Cek login admin
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
 include '../config/koneksi.php';
 
-// Ambil ID dari URL (Contoh: edit_pemilik.php?id=2)
-$id_pemilik = isset($_GET['id']) ? $_GET['id'] : 0;
+// Ambil ID dari URL
+$id_pemilik = isset($_GET['id']) ? mysqli_real_escape_string($koneksi, $_GET['id']) : 0;
 
-// Tarik data yang sudah ada
+// Tarik data lama
 $query_cek = mysqli_query($koneksi, "SELECT * FROM pemilik WHERE ID_Pemilik = '$id_pemilik'");
 $data = mysqli_fetch_assoc($query_cek);
 
-// Jika ID tidak ditemukan, kembalikan ke index
 if (!$data) {
     header("Location: data_pemilik.php");
     exit();
@@ -23,13 +21,12 @@ if (!$data) {
 // Proses Update Data
 if (isset($_POST['update'])) {
     $nama = mysqli_real_escape_string($koneksi, $_POST['nama_pemilik']);
-    $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
     $telepon = mysqli_real_escape_string($koneksi, $_POST['no_telepon']);
+    $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
 
     $query_update = "UPDATE pemilik SET Nama_Pemilik='$nama', Alamat='$alamat', No_Telepon='$telepon' WHERE ID_Pemilik='$id_pemilik'";
     
     if (mysqli_query($koneksi, $query_update)) {
-        // Direct kembali ke data_pemilik.php
         echo "<script>alert('Data pemilik berhasil diperbarui!'); window.location.href='data_pemilik.php';</script>";
         exit();
     } else {
@@ -53,11 +50,11 @@ if (isset($_POST['update'])) {
         <form method="POST" action="">
             <div class="mb-3">
                 <label class="form-label fw-bold small text-muted">Nama Lengkap Pemilik</label>
-                <input type="text" name="nama_pemilik" class="form-control" value="<?= htmlspecialchars($data['Nama_Pemilik']); ?>" required>
+                <input type="text" name=\"nama_pemilik\" class="form-control" value="<?= htmlspecialchars($data['Nama_Pemilik']); ?>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label fw-bold small text-muted">Nomor Telepon (WhatsApp)</label>
-                <input type="number" name="no_telepon" class="form-control" value="<?= htmlspecialchars($data['No_Telepon']); ?>" required>
+                <input type="number" name=\"no_telepon\" class="form-control" value="<?= htmlspecialchars($data['No_Telepon']); ?>" required>
             </div>
             <div class="mb-4">
                 <label class="form-label fw-bold small text-muted">Alamat Rumah</label>
@@ -66,9 +63,9 @@ if (isset($_POST['update'])) {
             
             <div class="d-flex justify-content-between">
                 <a href="data_pemilik.php" class="btn btn-secondary px-4">Batal</a>
-                <button type="submit" name="update" class="btn btn-warning px-4 fw-bold">Update Data</button>
+                <button type="submit" name="update" class="btn btn-warning px-4 fw-bold">Perbarui Data</button>
             </div>
         </form>
     </div>
 </body>
-</html> 
+</html>

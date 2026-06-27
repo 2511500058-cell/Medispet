@@ -1,6 +1,5 @@
 <?php
 session_start();
-// Cek login admin
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
@@ -10,12 +9,11 @@ include '../config/koneksi.php';
 // Proses Simpan Data
 if (isset($_POST['simpan'])) {
     $nama = mysqli_real_escape_string($koneksi, $_POST['nama_pemilik']);
-    $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
     $telepon = mysqli_real_escape_string($koneksi, $_POST['no_telepon']);
+    $alamat = mysqli_real_escape_string($koneksi, $_POST['alamat']);
 
     $query = "INSERT INTO pemilik (Nama_Pemilik, Alamat, No_Telepon) VALUES ('$nama', '$alamat', '$telepon')";
     if (mysqli_query($koneksi, $query)) {
-        // Direct kembali ke data_pemilik.php
         echo "<script>alert('Data pemilik berhasil ditambahkan!'); window.location.href='data_pemilik.php';</script>";
         exit();
     } else {

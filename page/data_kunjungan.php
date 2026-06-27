@@ -56,7 +56,7 @@ if (isset($_GET['hapus'])) {
 <body class="bg-light p-4">
     <div class="container bg-white p-4 shadow-sm rounded">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="fw-bold text-dark m-0"><i class="fa fa-calendar-check text-primary me-2"></i> Pendaftaran Kunjungan</h4>
+            <h4 class="fw-bold text-dark m-0"><i class="fa fa-list-alt d-block-md me-2 text-primary"></i> Pendaftaran Kunjungan</h4>
             <a href="index.php" class="btn btn-secondary fw-bold px-3" style="border-radius: 20px;">
                 <i class="fa fa-arrow-left me-1"></i> Kembali ke Menu Utama
             </a>
@@ -141,7 +141,7 @@ if (isset($_GET['hapus'])) {
                                     <td class='text-center'>{$status}</td>
                                     <td class='text-center'>
                                         
-                                        <a href='detail_tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-sm btn-info text-white fw-bold px-3 me-1' style='border-radius: 15px;'>
+                                        <a href=' detail_tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-sm btn-info text-white fw-bold px-3 me-1' style='border-radius: 15px;'>
                                             <i class='fa fa-stethoscope me-1'></i> Detail Tindakan
                                         </a>
 
