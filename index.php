@@ -101,40 +101,40 @@ include 'config/koneksi.php';
                     <h5 class="fw-bold text-primary mb-4"><i class="fa fa-cogs me-2"></i>Manajemen Data Master & Administrasi</h5>
                     <p class="text-muted mb-4">Sebagai Administrator, Anda memiliki akses penuh untuk mengelola pengguna, pendaftaran antrean, obat, dan validasi tagihan tindakan klinik.</p>
                     <div class="row g-3 text-center justify-content-center align-items-stretch">
-    <div class="col-md-4 d-flex">
-        <a href="page/data_dokter.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-            <i class="fa fa-user-md d-block mb-2" style="font-size: 2rem;"></i> 
-            Kelola Dokter
-        </a>
-    </div>
-    <div class="col-md-4 d-flex">
-        <a href="page/data_pemilik.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-            <i class="fa fa-user d-block mb-2" style="font-size: 2rem;"></i> 
-            Kelola Pemilik
-        </a>
-    </div>
-    <div class="col-md-4 d-flex">
-        <a href="page/data_hewan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-            <i class="fa fa-paw d-block mb-2" style="font-size: 2rem;"></i> 
-            Kelola Hewan
-        </a>
-    </div>
+                    <div class="col-md-4 d-flex">
+                        <a href="page/data_dokter.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                            <i class="fa fa-user-md d-block mb-2" style="font-size: 2rem;"></i> 
+                            Kelola Dokter
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <a href="page/data_pemilik.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                            <i class="fa fa-user d-block mb-2" style="font-size: 2rem;"></i> 
+                            Kelola Pemilik
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <a href="page/data_hewan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                            <i class="fa fa-paw d-block mb-2" style="font-size: 2rem;"></i> 
+                            Kelola Hewan
+                        </a>
+                    </div>
 
-    <div class="col-md-4 d-flex">
-        <a href="page/data_obat.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-            <i class="fa fa-medkit d-block mb-2" style="font-size: 2rem;"></i> 
-            Kelola Data Obat
-        </a>
-    </div>
-    <div class="col-md-4 d-flex">
-        <a href="page/data_kunjungan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-            <i class="fa fa-list-alt d-block mb-2" style="font-size: 2rem;"></i> 
-            Pendaftaran Antrean
-        </a>
-    </div>
-</div>
-                    <?php
-                    break;
+                    <div class="col-md-4 d-flex">
+                        <a href="page/data_obat.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                            <i class="fa fa-medkit d-block mb-2" style="font-size: 2rem;"></i> 
+                            Kelola Data Obat
+                        </a>
+                    </div>
+                    <div class="col-md-4 d-flex">
+                        <a href="page/data_kunjungan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                            <i class="fa fa-list-alt d-block mb-2" style="font-size: 2rem;"></i> 
+                            Pendaftaran Kunjungan
+                        </a>
+                    </div>
+                </div>
+            <?php
+            break;
 
                 case 'dokter':
                     // ==================== TAMPILAN ROLE DOKTER ====================
@@ -247,44 +247,82 @@ include 'config/koneksi.php';
       </div>
     </div>
   </div>
-  <footer>
+<footer class="footer mt-auto py-5 bg-light border-top">
     <div class="container">
-      <div class="row">
-        <div class="col-lg-4">
-          <div class="about-widget">
-            <div class="logo"></div>
-            <p>Sistem Informasi Rekam Medis Klinik Hewan - Medispet.</p>
-          </div>
-        </div>
-        <div class="col-lg-4">
-          </div>
-        <div class="col-lg-4">
-          <div class="about-widget">
-                <div class="card border-0 shadow-sm p-4 bg-white text-dark" style="border-radius: 20px;">
-                    <div class="card-body p-1 text-center">
-                        <h6 class="fw-bold text-dark mb-2">Informasi Akun</h6>
-                        <span class="badge bg-success bg-opacity-10 text-success px-3 py-2 fw-bold mb-3 d-inline-block" style="font-size: 11px; border-radius: 30px; text-transform: uppercase;">
-                            <i class="fa fa-circle me-1" style="font-size: 7px;"></i> <?php echo htmlspecialchars($role); ?>
-                        </span>
-                        
-                        <div class="p-2.5 mb-4 text-secondary small" style="border-radius: 12px; background-color: #f8f9fa; border: 1px solid #f1f3f5;">
-                            ID Akun Terdaftar: <span class="fw-bold text-dark">@<?php echo htmlspecialchars($_SESSION['username']); ?></span>
-                        </div>
-                        
-                        <div class="d-grid">
-                            <a href="logout.php" class="btn btn-danger fw-bold py-2.5 shadow-sm" 
-                               style="border-radius: 30px; font-size: 13px; letter-spacing: 0.5px; transition: all 0.3s ease;" 
-                               onclick="return confirm('Apakah Anda yakin ingin keluar dari sistem Medispet?')">
-                                <i class="fa fa-sign-out me-2"></i> Keluar dari Aplikasi
-                            </a>
+        <div class="row gy-4">
+            
+            <div class="col-lg-4 col-md-6">
+                <div class="about-widget pe-lg-4">
+                    <h5 class="fw-bold mb-3" style="color: #2c3e50;">
+                        <i class="fa fa-paw me-2 text-primary"></i>Medispet
+                    </h5>
+                    <p class="text-secondary small lh-lg mb-4">
+                        Sistem Informasi Rekam Medis Klinik Hewan. Kami memberikan kemudahan dalam mengelola data pasien, riwayat kesehatan, dan administrasi klinik secara terintegrasi.
+                    </p>
+                    <div class="d-flex gap-3">
+                        <a href="#" class="text-secondary hover-primary"><i class="fa-brands fa-whatsapp fs-5"></i></a>
+                        <a href="#" class="text-secondary hover-primary"><i class="fa-brands fa-instagram fs-5"></i></a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6">
+                <div class="ps-lg-3">
+                    <h6 class="fw-bold text-dark mb-3">Info Klinik</h6>
+                    <ul class="list-unstyled text-secondary small lh-lg">
+                        <li><i class="fa fa-clock me-2 text-warning"></i> Senin - Jumat: 08:00 - 20:00</li>
+                        <li><i class="fa fa-clock me-2 text-warning"></i> Sabtu - Minggu: 09:00 - 15:00</li>
+                        <li class="mt-2"><i class="fa fa-map-marker-alt me-2 text-danger"></i> Jl. Satwa Sehat No. 123</li>
+                    </ul>
+                </div>
+            </div> 
+
+            <div class="col-lg-4 col-md-12">
+                <div class="about-widget">
+                    <div class="card border-0 shadow-sm bg-white hover-card" style="border-radius: 16px;">
+                        <div class="card-body p-4 text-center">
+                            <h6 class="fw-bold text-dark mb-3">
+                                <i class="fa fa-user-circle me-1 text-primary"></i> Sesi Aktif
+                            </h6>
+                            
+                            <span class="badge bg-success px-3 py-2 fw-bold mb-3 d-inline-block text-white" style="font-size: 11px; border-radius: 30px; text-transform: uppercase; letter-spacing: 0.5px;">
+                                <i class="fa fa-circle me-1 text-warning" style="font-size: 7px; vertical-align: middle;"></i> 
+                                <?php echo isset($_SESSION['role']) ? htmlspecialchars($_SESSION['role']) : 'ADMIN'; ?>
+                            </span>
+                            
+                            <div class="p-2 mb-4 text-secondary small" style="border-radius: 10px; background-color: #f8f9fa; border: 1px dashed #dee2e6;">
+                                Username: <span class="fw-bold text-primary">@<?php echo htmlspecialchars($_SESSION['username']); ?></span>
+                            </div>
+                            
+                            <div class="d-grid">
+                                <a href="logout.php" class="btn btn-outline-danger fw-bold py-2 shadow-sm btn-logout" 
+                                   style="border-radius: 10px; font-size: 13px; transition: all 0.3s ease;" 
+                                   onclick="return confirm('Apakah Anda yakin ingin keluar dari sistem Medispet?')">
+                                    <i class="fa fa-sign-out-alt me-2"></i> Keluar Aplikasi
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
-              </div>
+            </div>
+        </div>
+
+        <div class="row mt-5 pt-4 border-top">
+            <div class="col-12 text-center">
+                <p class="text-secondary small mb-0">
+                    &copy; <?php echo date('Y'); ?> <strong>Medispet</strong>. All rights reserved.
+                </p>
+            </div>
         </div>
     </div>
-</div>
 </footer>
+                    
+<style>
+    .hover-primary:hover { color: #0d6efd !important; transition: 0.3s ease; }
+    .hover-card { transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .hover-card:hover { transform: translateY(-5px); box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important; }
+    .btn-logout:hover { background-color: #dc3545; color: white !important; }
+</style>
 
   <script src="vendor/jquery/jquery.min.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
