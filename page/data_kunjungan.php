@@ -57,7 +57,7 @@ if (isset($_GET['hapus'])) {
     <div class="container bg-white p-4 shadow-sm rounded">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h4 class="fw-bold text-dark m-0"><i class="fa fa-list-alt d-block-md me-2 text-primary"></i> Pendaftaran Kunjungan</h4>
-            <a href="index.php" class="btn btn-secondary fw-bold px-3" style="border-radius: 20px;">
+            <a href="../index.php" class="btn btn-secondary fw-bold px-3" style="border-radius: 20px;">
                 <i class="fa fa-arrow-left me-1"></i> Kembali ke Menu Utama
             </a>
         </div>

@@ -12,13 +12,15 @@ if (isset($_POST['simpan'])) {
     $nama_dokter = mysqli_real_escape_string($koneksi, $_POST['nama_dokter']);
     $password_dokter = mysqli_real_escape_string($koneksi, $_POST['password_dokter']);
     
-    $query = "INSERT INTO dokter (Nama_Dokter) VALUES ('$nama_dokter')";
+    // Menyimpan Nama dan Password ke dalam tabel Dokter
+    $query = "INSERT INTO dokter (Nama_Dokter, Password) VALUES ('$nama_dokter', '$password_dokter')";
     if (mysqli_query($koneksi, $query)) {
         
         // OTOMATIS Buatkan Akun di tabel medispet
         // Menghapus spasi dan titik dari nama agar rapi jadi username (Misal: "drh. Budi" jadi "drhbudi")
         $username_login = strtolower(str_replace([' ', '.', ','], '', $nama_dokter)); 
         
+        // Simpan juga ke tabel akun (medispet)
         $query_akun = "INSERT INTO medispet (username, password, role) VALUES ('$username_login', '$password_dokter', 'dokter')";
         mysqli_query($koneksi, $query_akun);
 
@@ -42,7 +44,7 @@ if (isset($_POST['simpan'])) {
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
 </head>
 <body class="bg-light p-4">
-    <div class="container bg-white p-4 shadow-sm rounded" style="max-width: 600px;">
+    <div class="container bg-white p-4 shadow-sm rounded" style="max-width: 600px; border-radius: 15px !important;">
         <h5 class="fw-bold mb-4"><i class="fa fa-user-plus me-2 text-primary"></i>Tambah Dokter Baru</h5>
         
         <form method="POST" action="">
@@ -54,12 +56,11 @@ if (isset($_POST['simpan'])) {
             <div class="mb-4">
                 <label class="form-label fw-bold small text-muted">Buat Kata Sandi Login Dokter</label>
                 <input type="text" name="password_dokter" class="form-control" placeholder="Contoh: asep123" required>
-                <small class="text-info">*Kata sandi ini akan diberikan ke Dokter untuk masuk ke dalam aplikasi.</small>
             </div>
             
             <div class="d-flex justify-content-between">
-                <a href="data_dokter.php" class="btn btn-secondary px-4">Batal</a>
-                <button type="submit" name="simpan" class="btn btn-primary px-4 fw-bold">Simpan & Buat Akun</button>
+                <a href="data_dokter.php" class="btn btn-secondary px-4" style="border-radius: 10px;">Batal</a>
+                <button type="submit" name="simpan" class="btn btn-primary px-4 fw-bold" style="border-radius: 10px;">Simpan Data</button>
             </div>
         </form>
     </div>

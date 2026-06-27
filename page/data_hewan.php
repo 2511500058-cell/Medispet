@@ -21,24 +21,24 @@ if (isset($_GET['hapus'])) {
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kelola Data Pasien Hewan - Medispet</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kelola Hewan - Medispet</title>
     <link href="../vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../assets/css/fontawesome.css">
 </head>
 <body class="bg-light p-4">
     <div class="container bg-white p-4 shadow-sm rounded">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4 class="fw-bold text-dark m-0"><i class="fa fa-paw me-2 text-primary"></i>Data Pasien (Hewan)</h4>
+            <h4><i class="fa fa-paw me-2 text-primary"></i>Kelola Data Hewan</h4>
             <div>
-                <a href="index.php" class="btn btn-secondary btn-sm me-2"><i class="fa fa-arrow-left me-1"></i> Kembali</a>
-                <a href="tambah_hewan.php" class="btn btn-primary btn-sm"><i class="fa fa-plus me-1"></i> Tambah Pasien</a>
+                <a href="tambah_hewan.php" class="btn btn-sm btn-primary fw-bold me-2"><i class="fa fa-plus me-1"></i>Tambah Hewan</a>
+                <a href="../index.php" class="btn btn-sm btn-secondary fw-bold"><i class="fa fa-arrow-left me-1"></i>Kembali</a>
             </div>
         </div>
 
         <div class="table-responsive">
             <table class="table table-bordered table-hover align-middle">
-                <thead class="table-primary text-center">
+                <thead class="table-dark">
                     <tr>
                         <th>ID Pasien</th>
                         <th>Nama Hewan</th>

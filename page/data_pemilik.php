@@ -39,7 +39,7 @@ if (isset($_GET['hapus'])) {
 <body class="bg-light p-4">
     <div class="container bg-white p-4 shadow-sm rounded">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4><i class="fa fa-user d-block-md me-2 text-primary"></i>Kelola Data Pemilik</h4>
+            <h4><i class="fa fa-user me-2 text-primary"></i>Kelola Data Pemilik</h4>
             <div>
                 <a href="tambah_pemilik.php" class="btn btn-sm btn-primary fw-bold me-2"><i class="fa fa-plus me-1"></i>Tambah Pemilik</a>
                 <a href="../index.php" class="btn btn-sm btn-secondary fw-bold"><i class="fa fa-arrow-left me-1"></i>Kembali</a>
@@ -52,6 +52,7 @@ if (isset($_GET['hapus'])) {
                     <tr>
                         <th>ID Pemilik</th>
                         <th>Nama Pemilik</th>
+                        <th>Nomor Telepon</th>
                         <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
@@ -69,6 +70,9 @@ if (isset($_GET['hapus'])) {
                                         " . htmlspecialchars($row['Nama_Pemilik']) . " <br>
                                     </td>
                                     <td class='text-center'>
+                                        " . htmlspecialchars($row['No_Telepon']) . " <br>
+                                    </td>
+                                    <td class='text-center'>
                                         <a href='edit_pemilik.php?id={$row['ID_Pemilik']}' class='btn btn-sm btn-warning px-3 me-1'>
                                             <i class='fa fa-edit'></i> Edit
                                         </a>
@@ -79,7 +83,7 @@ if (isset($_GET['hapus'])) {
                                   </tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='3' class='text-center py-4 text-muted'><i class='fa-solid fa-folder-open me-1'></i> Belum ada data pemilik terdaftar.</td></tr>";
+                        echo "<tr><td colspan='4' class='text-center py-4 text-muted'>Belum ada data pemilik terdaftar.</td></tr>";
                     }
                     ?>
                 </tbody>

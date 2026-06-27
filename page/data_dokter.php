@@ -52,7 +52,7 @@ if (isset($_GET['hapus'])) {
                     <tr>
                         <th>ID Dokter</th>
                         <th>Nama Dokter</th>
-                        <th class="text-center">Aksi</th>
+                        <th>Kata Sandi</th> <th class="text-center">Aksi</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -63,6 +63,18 @@ if (isset($_GET['hapus'])) {
                             // Menampilkan preview username login (tanpa titik & spasi)
                             $username_tampil = strtolower(str_replace([' ', '.', ','], '', $row['Nama_Dokter']));
                             
+                            // Ambil password dari tabel medispet atau dari tabel dokter
+                            $query_pass = mysqli_query($koneksi, "SELECT password FROM medispet WHERE username = '$username_tampil' AND role = 'dokter'");
+                            $data_pass = mysqli_fetch_assoc($query_pass);
+                            
+                            if ($data_pass && !empty($data_pass['password'])) {
+                                $password_tampil = htmlspecialchars($data_pass['password']);
+                            } elseif (!empty($row['Password'])) {
+                                $password_tampil = htmlspecialchars($row['Password']);
+                            } else {
+                                $password_tampil = "<em class='text-muted small'>Tidak diatur</em>";
+                            }
+                            
                             echo "<tr>
                                     <td class='fw-bold text-secondary'>DKT-{$row['ID_Dokter']}</td>
                                     <td class='fw-bold'>
@@ -71,6 +83,7 @@ if (isset($_GET['hapus'])) {
                                             <i class='fa-solid fa-user me-1'></i> Login: @{$username_tampil}
                                         </span>
                                     </td>
+                                    <td><span class='text-danger fw-bold'>{$password_tampil}</span></td>
                                     <td class='text-center'>
                                         <a href='edit_dokter.php?id={$row['ID_Dokter']}' class='btn btn-sm btn-warning px-3 me-1'>
                                             <i class='fa fa-edit'></i> Edit
@@ -82,7 +95,8 @@ if (isset($_GET['hapus'])) {
                                   </tr>";
                         }
                     } else {
-                        echo "<tr><td colspan='3' class='text-center py-4 text-muted'><i class='fa-solid fa-folder-open me-1'></i> Belum ada data dokter terdaftar.</td></tr>";
+                        // Colspan diubah menjadi 4 karena ada tambahan kolom password
+                        echo "<tr><td colspan='4' class='text-center py-4 text-muted'><i class='fa-solid fa-folder-open me-1'></i> Belum ada data dokter terdaftar.</td></tr>";
                     }
                     ?>
                 </tbody>
