@@ -92,161 +92,161 @@ include 'config/koneksi.php';
         <div class="col-lg-12 mt-5">
           <div class="card border-0 shadow-sm p-4 bg-white text-dark" style="border-radius: 20px;">
             
-            <?php 
-            // LOGIKA PEMBAGIAN PERAN (Sesuai dokumen Peran_Medispet)
-            switch ($role) {
-                case 'admin':
-                    // ==================== TAMPILAN ROLE ADMIN ====================
-                    ?>
-                    <h5 class="fw-bold text-primary mb-4"><i class="fa fa-cogs me-2"></i>Manajemen Data Master & Administrasi</h5>
-                    <p class="text-muted mb-4">Sebagai Administrator, Anda memiliki akses penuh untuk mengelola pengguna, pendaftaran antrean, obat, dan validasi tagihan tindakan klinik.</p>
-                    <div class="row g-3 text-center justify-content-center align-items-stretch">
-                    <div class="col-md-4 d-flex">
-                        <a href="page/data_dokter.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-                            <i class="fa fa-user-md d-block mb-2" style="font-size: 2rem;"></i> 
-                            Kelola Dokter
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-flex">
-                        <a href="page/data_pemilik.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-                            <i class="fa fa-user d-block mb-2" style="font-size: 2rem;"></i> 
-                            Kelola Pemilik
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-flex">
-                        <a href="page/data_hewan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-                            <i class="fa fa-paw d-block mb-2" style="font-size: 2rem;"></i> 
-                            Kelola Hewan
-                        </a>
-                    </div>
+          <?php 
+          // LOGIKA PEMBAGIAN PERAN (Sesuai dokumen Peran_Medispet)
+          
+          if ($role == 'admin') { 
+          ?>
+              <h5 class="fw-bold text-primary mb-4"><i class="fa fa-cogs me-2"></i>Manajemen Data Master & Administrasi</h5>
+              <p class="text-muted mb-4">Sebagai Administrator, Anda memiliki akses penuh untuk mengelola pengguna, pendaftaran antrean, obat, dan validasi tagihan tindakan klinik.</p>
+              
+              <div class="row g-3 text-center justify-content-center align-items-stretch">
+                  <div class="col-md-4 d-flex">
+                      <a href="page/data_dokter.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                          <i class="fa fa-user-md d-block mb-2" style="font-size: 2rem;"></i> 
+                          Kelola Dokter
+                      </a>
+                  </div>
+                  <div class="col-md-4 d-flex">
+                      <a href="page/data_pemilik.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                          <i class="fa fa-user d-block mb-2" style="font-size: 2rem;"></i> 
+                          Kelola Pemilik
+                      </a>
+                  </div>
+                  <div class="col-md-4 d-flex">
+                      <a href="page/data_hewan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                          <i class="fa fa-paw d-block mb-2" style="font-size: 2rem;"></i> 
+                          Kelola Hewan
+                      </a>
+                  </div>
 
-                    <div class="col-md-4 d-flex">
-                        <a href="page/data_obat.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-                            <i class="fa fa-medkit d-block mb-2" style="font-size: 2rem;"></i> 
-                            Kelola Data Obat
-                        </a>
-                    </div>
-                    <div class="col-md-4 d-flex">
-                        <a href="page/data_kunjungan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
-                            <i class="fa fa-list-alt d-block mb-2" style="font-size: 2rem;"></i> 
-                            Pendaftaran Kunjungan
-                        </a>
-                    </div>
-                </div>
-            <?php
-            break;
+                  <div class="col-md-4 d-flex">
+                      <a href="page/data_obat.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                          <i class="fa fa-medkit d-block mb-2" style="font-size: 2rem;"></i> 
+                          Kelola Data Obat
+                      </a>
+                  </div>
+                  <div class="col-md-4 d-flex">
+                      <a href="page/data_kunjungan.php" class="btn btn-outline-primary w-100 py-3 fw-bold shadow-sm h-100 d-flex flex-column justify-content-center align-items-center" style="border-radius: 15px;">
+                          <i class="fa fa-list-alt d-block mb-2" style="font-size: 2rem;"></i> 
+                          Pendaftaran Kunjungan
+                      </a>
+                  </div>
+              </div>
+          <?php 
+          } 
+          ?>
 
-                case 'dokter':
-                    // ==================== TAMPILAN ROLE DOKTER ====================
-                    ?>
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>ID Kunjungan</th>
-                                    <th>Tanggal</th>
-                                    <th>Nama Hewan Pasien</th>
-                                    <th>Keluhan Awal</th>
-                                    <th>Status Medis</th>
-                                    <th class="text-center">Aksi Medis</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                $query_antrean = "SELECT k.*, h.Nama_Hewan FROM kunjungan k JOIN hewan h ON k.ID_Hewan = h.ID_Hewan ORDER BY k.ID_Kunjungan DESC";
-                                $res_dokter = mysqli_query($koneksi, $query_antrean);
+          <?php 
+          if ($role == 'dokter') { 
+          ?>
+              <div class="table-responsive">
+                  <table class="table table-hover align-middle m-0">
+                      <thead class="table-light">
+                          <tr>
+                              <th>ID Kunjungan</th>
+                              <th>Tanggal</th>
+                              <th>Nama Hewan Pasien</th>
+                              <th>Keluhan Awal</th>
+                              <th>Status Medis</th>
+                              <th class="text-center">Aksi Medis</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                          $query_antrean = "SELECT k.*, h.Nama_Hewan FROM kunjungan k JOIN hewan h ON k.ID_Hewan = h.ID_Hewan ORDER BY k.ID_Kunjungan DESC";
+                          $res_dokter = mysqli_query($koneksi, $query_antrean);
 
-                                if (mysqli_num_rows($res_dokter) > 0) {
-                                    while($row = mysqli_fetch_assoc($res_dokter)) {
-                                        $status = empty($row['Diagnosa']) ? "<span class='badge bg-warning text-dark px-3 py-2'>Menunggu Pemeriksaan</span>" : "<span class='badge bg-success px-3 py-2'>Selesai Diperiksa</span>";
-                                        echo "<tr>
-                                                <td class='fw-bold text-secondary'>#KJ-{$row['ID_Kunjungan']}</td>
-                                                <td>" . date('d M Y', strtotime($row['Tanggal_Kunjungan'])) . "</td>
-                                                <td class='fw-bold text-dark'>" . htmlspecialchars($row['Nama_Hewan']) . "</td>
-                                                <td>" . htmlspecialchars($row['Keluhan']) . "</td>
-                                                <td>{$status}</td>
-                                                <td class='text-center'>";
-                                        ?>
-                                                <a href="tindakan.php?id_kunjungan=<?php echo $row['ID_Kunjungan']; ?>" class="btn btn-primary btn-sm px-3 fw-bold" style="border-radius: 15px;">
-                                                   Periksa Pasien
-                                                </a>
-                                        <?php
-                                        echo "   </td>
-                                              </tr>";
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='6' class='text-center py-4 text-muted'><i class='fa fa-folder-open me-1'></i> Belum ada pasien masuk hari ini.</td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php
-                    break;
+                          if (mysqli_num_rows($res_dokter) > 0) {
+                              while($row = mysqli_fetch_assoc($res_dokter)) {
+                                  $status = empty($row['Diagnosa']) ? "<span class='badge bg-warning text-dark px-3 py-2'>Menunggu Pemeriksaan</span>" : "<span class='badge bg-success px-3 py-2'>Selesai Diperiksa</span>";
+                                  echo "<tr>
+                                          <td class='fw-bold text-secondary'>#KJ-{$row['ID_Kunjungan']}</td>
+                                          <td>" . date('d M Y', strtotime($row['Tanggal_Kunjungan'])) . "</td>
+                                          <td class='fw-bold text-dark'>" . htmlspecialchars($row['Nama_Hewan']) . "</td>
+                                          <td>" . htmlspecialchars($row['Keluhan']) . "</td>
+                                          <td>{$status}</td>
+                                          <td class='text-center'>
+                                              <a href='tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-primary btn-sm px-3 fw-bold' style='border-radius: 15px;'>
+                                                 Periksa Pasien
+                                              </a>
+                                          </td>
+                                        </tr>";
+                              }
+                          } else {
+                              echo "<tr><td colspan='6' class='text-center py-4 text-muted'><i class='fa fa-folder-open me-1'></i> Belum ada pasien masuk hari ini.</td></tr>";
+                          }
+                          ?>
+                      </tbody>
+                  </table>
+              </div>
+          <?php 
+          } 
+          ?>
 
-                case 'pasien':
-                    // ==================== TAMPILAN ROLE PASIEN ====================
-                    ?>
-                    <h5 class="fw-bold text-success mb-3"><i class="fa fa-paw me-2"></i>Rekam Medis Hewan Kesayangan Anda</h5>
-                    <p class="text-muted mb-4 small">Di bawah ini merupakan riwayat lengkap diagnosis medis, resep obat, serta catatan penanganan dari dokter untuk hewan peliharaan Anda.</p>
-                    
-                    <div class="table-responsive">
-                        <table class="table table-hover align-middle m-0">
-                            <thead class="table-light">
-                                <tr>
-                                    <th>Tanggal Periksa</th>
-                                    <th>Nama Hewan</th>
-                                    <th>Dokter Pemeriksa</th>
-                                    <th>Keluhan Anda</th>
-                                    <th>Hasil Diagnosa Dokter</th>
-                                    <th>Catatan Perawatan</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                // Mengambil riwayat kunjungan berdasarkan relasi data medis pasien
-                                $query_pasien = "SELECT k.*, h.Nama_Hewan, d.Nama_Dokter 
-                                                 FROM kunjungan k 
-                                                 JOIN hewan h ON k.ID_Hewan = h.ID_Hewan 
-                                                 LEFT JOIN dokter d ON k.ID_Dokter = d.ID_Dokter 
-                                                 ORDER BY k.ID_Kunjungan DESC";
-                                $res_pasien = mysqli_query($koneksi, $query_pasien);
+          <?php 
+          if ($role == 'pasien') { 
+              // Menambahkan kembali filter privasi hewan per-pasien (seperti di instruksi sebelumnya)
+              $username_login = mysqli_real_escape_string($koneksi, $_SESSION['username']);
+          ?>
+              <h5 class="fw-bold text-success mb-3"><i class="fa fa-paw me-2"></i>Rekam Medis Hewan Kesayangan Anda</h5>
+              <p class="text-muted mb-4 small">Di bawah ini merupakan riwayat lengkap diagnosis medis, resep obat, serta catatan penanganan dari dokter untuk hewan peliharaan Anda.</p>
+              
+              <div class="table-responsive">
+                  <table class="table table-hover align-middle m-0">
+                      <thead class="table-light">
+                          <tr>
+                              <th>Tanggal Periksa</th>
+                              <th>Nama Hewan</th>
+                              <th>Dokter Pemeriksa</th>
+                              <th>Keluhan Anda</th>
+                              <th>Hasil Diagnosa Dokter</th>
+                              <th>Catatan Perawatan</th>
+                          </tr>
+                      </thead>
+                      <tbody>
+                          <?php
+                          // Mengambil riwayat kunjungan berdasarkan data medis pasien yang sedang login saja
+                          $query_pasien = "SELECT k.*, h.Nama_Hewan, d.Nama_Dokter 
+                                           FROM kunjungan k 
+                                           JOIN hewan h ON k.ID_Hewan = h.ID_Hewan 
+                                           JOIN pemilik p ON h.ID_Pemilik = p.ID_Pemilik 
+                                           LEFT JOIN dokter d ON k.ID_Dokter = d.ID_Dokter 
+                                           WHERE LOWER(REPLACE(REPLACE(REPLACE(p.Nama_Pemilik, ' ', ''), '.', ''), ',', '')) = LOWER('$username_login')
+                                           ORDER BY k.ID_Kunjungan DESC";
+                          $res_pasien = mysqli_query($koneksi, $query_pasien);
 
-                                if (mysqli_num_rows($res_pasien) > 0) {
-                                    while($row = mysqli_fetch_assoc($res_pasien)) {
-                                        $diagnosa = empty($row['Diagnosa']) ? "<em class='text-muted small'>Sedang diproses...</em>" : "<strong>" . htmlspecialchars($row['Diagnosa']) . "</strong>";
-                                        $catatan = empty($row['Catatan_Medis']) ? "<em class='text-muted small'>Tidak ada catatan</em>" : htmlspecialchars($row['Catatan_Medis']);
-                                        
-                                        echo "<tr>
-                                                <td>" . date('d M Y', strtotime($row['Tanggal_Kunjungan'])) . "</td>
-                                                <td class='fw-bold text-success'>" . htmlspecialchars($row['Nama_Hewan']) . "</td>
-                                                <td>" . htmlspecialchars($row['Nama_Dokter'] ?? 'Belum Ditentukan') . "</td>
-                                                <td>" . htmlspecialchars($row['Keluhan']) . "</td>
-                                                <td>{$diagnosa}</td>
-                                                <td>{$catatan}</td>
-                                              </tr>";
-                                    }
-                                } else {
-                                    echo "<tr><td colspan='6' class='text-center py-4 text-muted'><i class='fa fa-folder-open me-1'></i> Anda belum memiliki riwayat rekam medis hewan.</td></tr>";
-                                }
-                                ?>
-                            </tbody>
-                        </table>
-                    </div>
-                    <?php
-                    break;
+                          if (mysqli_num_rows($res_pasien) > 0) {
+                              while($row = mysqli_fetch_assoc($res_pasien)) {
+                                  $diagnosa = empty($row['Diagnosa']) ? "<em class='text-muted small'>Sedang diproses...</em>" : "<strong>" . htmlspecialchars($row['Diagnosa']) . "</strong>";
+                                  $catatan = empty($row['Catatan_Medis']) ? "<em class='text-muted small'>Tidak ada catatan</em>" : htmlspecialchars($row['Catatan_Medis']);
+                                  
+                                  echo "<tr>
+                                          <td>" . date('d M Y', strtotime($row['Tanggal_Kunjungan'])) . "</td>
+                                          <td class='fw-bold text-success'>" . htmlspecialchars($row['Nama_Hewan']) . "</td>
+                                          <td>" . htmlspecialchars($row['Nama_Dokter'] ?? 'Belum Ditentukan') . "</td>
+                                          <td>" . htmlspecialchars($row['Keluhan']) . "</td>
+                                          <td>{$diagnosa}</td>
+                                          <td>{$catatan}</td>
+                                        </tr>";
+                              }
+                          } else {
+                              echo "<tr><td colspan='6' class='text-center py-4 text-muted'><i class='fa fa-folder-open me-1'></i> Anda belum memiliki riwayat rekam medis hewan.</td></tr>";
+                          }
+                          ?>
+                      </tbody>
+                  </table>
+              </div>
+          <?php 
+          } 
+          ?>
 
-                default:
-                    echo "<div class='alert alert-danger mb-0'>Role akun Anda tidak dikenali oleh sistem. Hubungi administrator.</div>";
-                    break;
-            }
-            ?>
           </div>
         </div>
-
       </div>
     </div>
   </div>
+
 <footer class="footer mt-auto py-5 bg-light border-top">
     <div class="container">
         <div class="row gy-4">
