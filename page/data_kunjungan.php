@@ -128,10 +128,21 @@ if (isset($_GET['hapus'])) {
                     $res = mysqli_query($koneksi, $query_tampil);
                     
                     if (mysqli_num_rows($res) > 0) {
-                        while($row = mysqli_fetch_assoc($res)) {
-                            // Cek status pemeriksaan dari ketersediaan isi kolom diagnosa
-                            $status = (empty($row['Diagnosa'])) ? "<span class='badge bg-warning text-dark'>Menunggu Pemeriksaan</span>" : "<span class='badge bg-success'>Selesai Diperiksa</span>";
+                        while ($row = mysqli_fetch_assoc($res)) {
+                            // Menentukan status (Sudah Diperiksa / Belum)
+                            $status = "<span class='badge bg-warning text-dark px-3 py-2' style='border-radius: 10px;'>Belum Diperiksa</span>";
                             
+                            // Siapkan variabel tombol detail (KOSONG jika belum diperiksa)
+                            $tombol_detail = "";
+                            
+                            // Cek jika dokter sudah selesai memeriksa (diagnosa/catatan medis sudah terisi)
+                            if (!empty($row['Diagnosa']) || !empty($row['Catatan_Medis'])) {
+                                $status = "<span class='badge bg-success px-3 py-2' style='border-radius: 10px;'>Selesai Periksa</span>";
+                                
+                                // MUNCULKAN TOMBOL DETAIL TINDAKAN
+                                $tombol_detail = "<a href='detail_tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-sm btn-info text-white fw-bold px-2 me-1' style='border-radius: 10px;'><i class='fa fa-stethoscope'></i> Detail</a>";
+                            }
+
                             echo "<tr>
                                     <td class='fw-bold text-secondary'>#KJ-{$row['ID_Kunjungan']}</td>
                                     <td>" . date('d M Y', strtotime($row['Tanggal_Kunjungan'])) . "</td>
@@ -140,10 +151,11 @@ if (isset($_GET['hapus'])) {
                                     <td>" . htmlspecialchars($row['Keluhan']) . "</td>
                                     <td class='text-center'>{$status}</td>
                                     <td class='text-center'>
-                                        <a href='edit_kunjungan.php?id={$row['ID_Kunjungan']}' class='btn btn-sm btn-warning fw-bold px-3 me-1' style='border-radius: 15px; color: #212529;'>
-                                            <i class='fa fa-edit me-1'></i> Edit
+                                        {$tombol_detail}
+                                        <a href='edit_kunjungan.php?id={$row['ID_Kunjungan']}' class='btn btn-sm btn-warning fw-bold px-2 me-1' style='border-radius: 10px; color: #212529;'>
+                                            <i class='fa fa-edit'></i> Edit
                                         </a>
-                                        <a href='data_kunjungan.php?hapus={$row['ID_Kunjungan']}' class='btn btn-sm btn-danger px-3' style='border-radius: 15px;' onclick='return confirm(\"Yakin ingin menghapus data kunjungan ini?\")'>
+                                        <a href='data_kunjungan.php?hapus={$row['ID_Kunjungan']}' class='btn btn-sm btn-danger px-2' style='border-radius: 10px;' onclick='return confirm(\"Yakin ingin menghapus data kunjungan ini?\")'>
                                             <i class='fa fa-trash'></i> Hapus
                                         </a>
                                     </td>
