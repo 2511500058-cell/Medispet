@@ -31,11 +31,11 @@ if (isset($_GET['hapus'])) {
 <body class="bg-light p-4">
     <div class="container bg-white p-4 shadow-sm rounded">
         <div class="d-flex justify-content-between align-items-center mb-4">
-            <h4><i class="fa fa-users me-2 text-primary"></i>Data Master Pemilik</h4>
-            <div>
-                <a href="tambah_pemilik.php" class="btn btn-sm btn-primary fw-bold me-2"><i class="fa fa-plus me-1"></i>Tambah Pemilik</a>
-                <a href="../index.php" class="btn btn-sm btn-secondary fw-bold"><i class="fa fa-arrow-left me-1"></i>Kembali</a>
-            </div>
+            <h3 class="m-0 fw-bold text-primary"><i class="fa-solid fa-user-doctor me-2"></i>Kelola Data Dokter</h3>
+            <a href="../index.php" class="btn btn-secondary fw-semibold shadow-sm" style="border-radius: 30px; font-size: 14px;">
+                <i class="fa fa-arrow-left me-2"></i>Kembali ke Dashboard
+            </a>
+        </div>
         </div>
 
         <div class="table-responsive">
