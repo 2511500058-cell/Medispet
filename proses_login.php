@@ -44,7 +44,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         } else {
             // Jika kedua pengecekan gagal
             echo "<script>
-                    alert('ID Pasien atau Password (No. Telepon) Salah!');
+                    alert('ID Pasien atau Password Salah!');
                     window.location.href='login.php';
                   </script>";
             exit();
