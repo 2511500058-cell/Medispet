@@ -176,7 +176,7 @@ include 'config/koneksi.php';
                                           <td>" . htmlspecialchars($row['Keluhan']) . "</td>
                                           <td>{$status}</td>
                                           <td class='text-center'>
-                                              <a href='tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-primary btn-sm px-3 fw-bold' style='border-radius: 15px;'>
+                                              <a href='page/tindakan.php?id_kunjungan={$row['ID_Kunjungan']}' class='btn btn-primary btn-sm px-3 fw-bold' style='border-radius: 15px;'>
                                                  Periksa Pasien
                                               </a>
                                           </td>
