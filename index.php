@@ -70,7 +70,7 @@ include 'config/koneksi.php';
       </div>
     </div>
   </header>
-  <div class="main-banner">
+
     <div class="container">
       <div class="row">
         <div class="col-lg-12">
