@@ -1,7 +1,7 @@
 <?php
 session_start();
 session_unset();
-session_destroy(); // Menghapus seluruh riwayat login dari server
+session_destroy(); 
 
 echo "<script>
         alert('Anda telah keluar dari sistem.');
