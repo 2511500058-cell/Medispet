@@ -1,26 +1,25 @@
 <?php
 session_start();
-// Cek login admin
+
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
 include '../config/koneksi.php';
 
-// Proses Simpan Data Dokter & Buat Akun Medispet
+
 if (isset($_POST['simpan'])) {
     $nama_dokter = mysqli_real_escape_string($koneksi, $_POST['nama_dokter']);
     $password_dokter = mysqli_real_escape_string($koneksi, $_POST['password_dokter']);
     
-    // Menyimpan Nama dan Password ke dalam tabel Dokter
+
     $query = "INSERT INTO dokter (Nama_Dokter, Password) VALUES ('$nama_dokter', '$password_dokter')";
     if (mysqli_query($koneksi, $query)) {
         
-        // OTOMATIS Buatkan Akun di tabel medispet
-        // Menghapus spasi dan titik dari nama agar rapi jadi username (Misal: "drh. Budi" jadi "drhbudi")
+
         $username_login = strtolower(str_replace([' ', '.', ','], '', $nama_dokter)); 
         
-        // Simpan juga ke tabel akun (medispet)
+
         $query_akun = "INSERT INTO medispet (username, password, role) VALUES ('$username_login', '$password_dokter', 'dokter')";
         mysqli_query($koneksi, $query_akun);
 
