@@ -60,7 +60,7 @@ if (isset($_GET['hapus'])) {
                     $res = mysqli_query($koneksi, "SELECT * FROM obat");
                     if (mysqli_num_rows($res) > 0) {
                         while($row = mysqli_fetch_assoc($res)) {
-                            // Menampilkan preview username login (tanpa titik & spasi)
+                            
                             $username_tampil = strtolower(str_replace([' ', '.', ','], '', $row['Nama_Obat']));
                             
                             echo "<tr>

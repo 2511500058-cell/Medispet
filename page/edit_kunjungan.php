@@ -1,40 +1,40 @@
 <?php
-// FITUR PELACAK ERROR
+
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
 
-// Cek login admin
+
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
 
-// Load koneksi
+
 include '../config/koneksi.php';
 
-// Ambil ID Kunjungan dari URL
+
 $id_kunjungan = isset($_GET['id']) ? mysqli_real_escape_string($koneksi, $_GET['id']) : 0;
 
-// Ambil data kunjungan lama
+
 $query_cek = mysqli_query($koneksi, "SELECT * FROM kunjungan WHERE ID_Kunjungan = '$id_kunjungan'");
 $data = mysqli_fetch_assoc($query_cek);
 
-// Jika data tidak ditemukan, kembalikan ke halaman utama
+
 if (!$data) {
     header("Location: data_kunjungan.php");
     exit();
 }
 
-// Proses Update Data Kunjungan
+
 if (isset($_POST['update'])) {
     $id_hewan  = mysqli_real_escape_string($koneksi, $_POST['id_hewan']);
     $id_dokter = mysqli_real_escape_string($koneksi, $_POST['id_dokter']);
     $tanggal   = mysqli_real_escape_string($koneksi, $_POST['tanggal_kunjungan']);
     $keluhan   = mysqli_real_escape_string($koneksi, $_POST['keluhan']);
 
-    // Update hanya data registrasi pendaftaran saja
+
     $query_update = "UPDATE kunjungan SET 
                         ID_Hewan = '$id_hewan', 
                         ID_Dokter = '$id_dokter', 
