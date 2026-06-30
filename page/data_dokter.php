@@ -1,7 +1,7 @@
 <?php
 session_start();
 // Cek login admin
-if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
+if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') 
     header("Location: ../login.php");
     exit();
 }
