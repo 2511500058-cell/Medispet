@@ -6,10 +6,10 @@ if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
 }
 include '../config/koneksi.php';
 
-// Ambil ID dari URL
+
 $id_pemilik = isset($_GET['id']) ? mysqli_real_escape_string($koneksi, $_GET['id']) : 0;
 
-// Tarik data lama
+
 $query_cek = mysqli_query($koneksi, "SELECT * FROM pemilik WHERE ID_Pemilik = '$id_pemilik'");
 $data = mysqli_fetch_assoc($query_cek);
 
@@ -18,7 +18,7 @@ if (!$data) {
     exit();
 }
 
-// Proses Update Data
+
 if (isset($_POST['update'])) {
     $nama = mysqli_real_escape_string($koneksi, $_POST['nama_pemilik']);
     $telepon = mysqli_real_escape_string($koneksi, $_POST['no_telepon']);
@@ -50,15 +50,15 @@ if (isset($_POST['update'])) {
         <form method="POST" action="">
             <div class="mb-3">
                 <label class="form-label fw-bold small text-muted">Nama Lengkap Pemilik</label>
-                <input type="text" name=\"nama_pemilik\" class="form-control" value="<?= htmlspecialchars($data['Nama_Pemilik']); ?>" required>
+                <input type="text" name=\"Nama_Pemilik\" class="form-control" value="<?= htmlspecialchars($data['Nama_Pemilik']); ?>" required>
             </div>
             <div class="mb-3">
                 <label class="form-label fw-bold small text-muted">Nomor Telepon (WhatsApp)</label>
-                <input type="number" name=\"no_telepon\" class="form-control" value="<?= htmlspecialchars($data['No_Telepon']); ?>" required>
+                <input type="number" name=\"No_Telepon\" class="form-control" value="<?= htmlspecialchars($data['No_Telepon']); ?>" required>
             </div>
             <div class="mb-4">
                 <label class="form-label fw-bold small text-muted">Alamat Rumah</label>
-                <textarea name="alamat" class="form-control" rows="3" required><?= htmlspecialchars($data['Alamat']); ?></textarea>
+                <textarea name="Alamat" class="form-control" rows="3" required><?= htmlspecialchars($data['Alamat']); ?></textarea>
             </div>
             
             <div class="d-flex justify-content-between">
