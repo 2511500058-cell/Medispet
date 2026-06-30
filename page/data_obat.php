@@ -1,18 +1,18 @@
 <?php
 session_start();
-// Cek login admin
+
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
-// Load koneksi dari folder config di luar folder ini
+
 include '../config/koneksi.php';
 
-// Proses Hapus Data Obat & Akun Loginnya
+
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     
-    // Cari nama obat dulu untuk hapus akun loginnya di tabel medispet
+    
     $cek_nama = mysqli_query($koneksi, "SELECT Nama_Obat FROM obat WHERE ID_Obat = '$id'");
     if ($row = mysqli_fetch_assoc($cek_nama)) {
         $username_hapus = strtolower(str_replace([' ', '.', ','], '', $row['Nama_Obat']));
