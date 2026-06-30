@@ -1,25 +1,25 @@
 <?php
 session_start();
 
-// Jika sudah login, lempar ke index.php
+
 if (isset($_SESSION['status_login']) && $_SESSION['status_login'] === true) {
     header("Location: index.php"); 
     exit;
 }
 
-// Panggil koneksi
+
 include 'config/koneksi.php'; 
 
 $error_message = "";
 $success_message = isset($_SESSION['success_msg']) ? $_SESSION['success_msg'] : "";
-unset($_SESSION['success_msg']); // Hapus pesan sukses setelah ditampilkan
+unset($_SESSION['success_msg']); 
 
 // Proses Login
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = mysqli_real_escape_string($koneksi, $_POST['username']);
     $password = mysqli_real_escape_string($koneksi, $_POST['password']);
 
-    // 1. CEK PERTAMA: Ke tabel `medispet` (Admin / Dokter / Akun Pasien Mandiri)
+    
     $query = "SELECT * FROM medispet WHERE username='$username' AND password='$password'";
     $hasil = mysqli_query($koneksi, $query);
 
@@ -34,9 +34,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         header("Location: index.php"); 
         exit;
     } else {
-        // 2. CEK KEDUA: Ke tabel `pemilik` (Jika didaftarkan oleh Admin)
-        // Username bisa menggunakan Nama_Pemilik atau ID_Pemilik
-        // Password menggunakan No_Telepon
+
         $query_pemilik = "SELECT * FROM pemilik WHERE (Nama_Pemilik='$username' OR ID_Pemilik='$username') AND No_Telepon='$password'";
         $hasil_pemilik = mysqli_query($koneksi, $query_pemilik);
 
