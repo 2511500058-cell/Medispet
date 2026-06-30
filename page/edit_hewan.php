@@ -14,7 +14,7 @@ $query_cek = mysqli_query($koneksi, "SELECT * FROM hewan WHERE ID_Hewan = '$id_h
 $data = mysqli_fetch_assoc($query_cek);
 
 if (!$data) {
-    
+    header("Location: data_hewan.php");
     exit();
 }
 
