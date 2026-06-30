@@ -1,18 +1,18 @@
 <?php
 session_start();
-// Cek login admin
+
 if (!isset($_SESSION['status_login']) || $_SESSION['role'] !== 'admin') {
     header("Location: ../login.php");
     exit();
 }
-// Load koneksi dari folder config di luar folder ini
+
 include '../config/koneksi.php';
 
-// Proses Hapus Data Dokter & Akun Loginnya
+
 if (isset($_GET['hapus'])) {
     $id = $_GET['hapus'];
     
-    // Cari nama dokter dulu untuk hapus akun loginnya di tabel medispet
+    
     $cek_nama = mysqli_query($koneksi, "SELECT Nama_Dokter FROM dokter WHERE ID_Dokter = '$id'");
     if ($row = mysqli_fetch_assoc($cek_nama)) {
         $username_hapus = strtolower(str_replace([' ', '.', ','], '', $row['Nama_Dokter']));
@@ -60,10 +60,10 @@ if (isset($_GET['hapus'])) {
                     $res = mysqli_query($koneksi, "SELECT * FROM dokter");
                     if (mysqli_num_rows($res) > 0) {
                         while($row = mysqli_fetch_assoc($res)) {
-                            // Menampilkan preview username login (tanpa titik & spasi)
+                        
                             $username_tampil = strtolower(str_replace([' ', '.', ','], '', $row['Nama_Dokter']));
                             
-                            // Ambil password dari tabel medispet atau dari tabel dokter
+                           
                             $query_pass = mysqli_query($koneksi, "SELECT password FROM medispet WHERE username = '$username_tampil' AND role = 'dokter'");
                             $data_pass = mysqli_fetch_assoc($query_pass);
                             
@@ -95,7 +95,7 @@ if (isset($_GET['hapus'])) {
                                   </tr>";
                         }
                     } else {
-                        // Colspan diubah menjadi 4 karena ada tambahan kolom password
+                        
                         echo "<tr><td colspan='4' class='text-center py-4 text-muted'><i class='fa-solid fa-folder-open me-1'></i> Belum ada data dokter terdaftar.</td></tr>";
                     }
                     ?>
