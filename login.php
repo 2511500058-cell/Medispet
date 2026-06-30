@@ -41,7 +41,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         if ($hasil_pemilik && mysqli_num_rows($hasil_pemilik) > 0) {
             $data_pasien = mysqli_fetch_assoc($hasil_pemilik);
             
-            // Daftarkan ke session sebagai role 'pasien'
+           
             $_SESSION['status_login'] = true;
             $_SESSION['id_user']      = $data_pasien['ID_Pemilik'];
             $_SESSION['username']     = $data_pasien['Nama_Pemilik'];
@@ -50,7 +50,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             header("Location: index.php"); 
             exit;
         } else {
-            // Jika di kedua tabel tidak ditemukan, tampilkan error
+            
             $error_message = "Kredensial tidak valid. Silakan periksa kembali Username dan Password Anda.";
         }
     }
