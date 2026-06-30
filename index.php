@@ -1,16 +1,16 @@
 <?php
 session_start();
 
-// Cek apakah user sudah login lewat session, jika belum, lempar balik ke login.php
+
 if (!isset($_SESSION['status_login']) || $_SESSION['status_login'] !== true) {
     header("Location: ../login.php"); 
     exit();
 }
 
-// Ambil role pengguna dari session untuk mengatur hak akses tampilan
+
 $role = isset($_SESSION['role']) ? $_SESSION['role'] : '';
 
-// Hubungkan ke database
+
 include 'config/koneksi.php';
 ?>
 
@@ -93,7 +93,7 @@ include 'config/koneksi.php';
           <div class="card border-0 shadow-sm p-4 bg-white text-dark" style="border-radius: 20px;">
             
           <?php 
-          // LOGIKA PEMBAGIAN PERAN (Sesuai dokumen Peran_Medispet)
+          
           
           if ($role == 'admin') { 
           ?>
@@ -139,7 +139,7 @@ include 'config/koneksi.php';
 
           <?php 
           if ($role == 'dokter') { 
-              // 1. Ambil username dokter yang sedang login dari session
+              
               $username_login = mysqli_real_escape_string($koneksi, $_SESSION['username']);
           ?>
               <div class="table-responsive">
@@ -156,7 +156,7 @@ include 'config/koneksi.php';
                       </thead>
                       <tbody>
                           <?php
-                          // 2. FILTER QUERY: Hubungkan tabel kunjungan dengan dokter, lalu saring berdasarkan nama dokter yang login
+                          
                           $query_antrean = "SELECT k.*, h.Nama_Hewan 
                                             FROM kunjungan k 
                                             JOIN hewan h ON k.ID_Hewan = h.ID_Hewan 
@@ -195,7 +195,7 @@ include 'config/koneksi.php';
 
           <?php 
           if ($role == 'pasien') { 
-              // Menambahkan kembali filter privasi hewan per-pasien (seperti di instruksi sebelumnya)
+              
               $username_login = mysqli_real_escape_string($koneksi, $_SESSION['username']);
           ?>
               <h5 class="fw-bold text-success mb-3"><i class="fa fa-paw me-2"></i>Rekam Medis Hewan Kesayangan Anda</h5>
@@ -215,7 +215,7 @@ include 'config/koneksi.php';
                       </thead>
                       <tbody>
                           <?php
-                          // Mengambil riwayat kunjungan berdasarkan data medis pasien yang sedang login saja
+                          
                           $query_pasien = "SELECT k.*, h.Nama_Hewan, d.Nama_Dokter 
                                            FROM kunjungan k 
                                            JOIN hewan h ON k.ID_Hewan = h.ID_Hewan 
